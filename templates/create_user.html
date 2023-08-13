@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create User</title>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+   {% endwith %}
+</head>
+<body>
+  <h2>Create User</h2>
+  <form method="POST">
+    <label>ID:</label><br>
+    <input type="text" name="id"><br>
+    <label for="name">Name</label><br>  <!-- add this field -->
+    <input type="text" id="name" name="name" required><br>  <!-- add this field -->
+    <label>Email:</label><br>
+    <input type="text" name="email"><br>
+    <label>Password:</label><br>
+    <input type="password" name="password"><br><br>
+    <input type="submit" value="Create User">
+  </form>
+  <!-- Add the logout link here -->
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <a href="{{ url_for('admin') }}">Back to Admin</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Device</title>
+</head>
+<body>
+  <h2>Create Device</h2>
+ <form method="POST">
+    <label for="type">Type:</label><br>
+    <input type="text" id="type" name="type"><br>
+
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address"><br>
+
+    <label for="user_id">User ID:</label><br>
+    <select id="user_id" name="user_id">
+        {% for user in users %}
+        <option value="{{ user.id }}">{{ user.id }}</option>
+        {% endfor %}
+    </select><br>
+
+    <input type="submit" value="Create Device">
+</form>
+
+  <!-- Add the logout link here -->
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <a href="{{ url_for('admin') }}">Back to Admin</a>
+</body>
+</html>

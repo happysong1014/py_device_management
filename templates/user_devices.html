@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Devices</title>
+</head>
+<body>
+  <h2>Your Devices</h2>
+  <ul>
+    {% for device in devices %}
+      <li>{{ device.type }}: {{ device.address }}</li>
+    {% endfor %}
+  </ul>
+  <!-- Add the logout link here -->
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
